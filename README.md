@@ -240,3 +240,7 @@ Expected problems such as unsupported files, empty transcripts, oversized source
 - ChromaDB metadata is the source of truth for source IDs, titles, URLs, page numbers, and chunk indexes.
 - Website extraction is intentionally a single-page HTML extractor. JavaScript-heavy sites may need a headless browser, which is outside this simple implementation.
 - YouTube's transcript endpoint can be rate-limited or blocked for some server IP addresses.
+
+---
+
+Created by Divya Sharma.
