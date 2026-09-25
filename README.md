@@ -13,6 +13,45 @@ source -> extract text -> split into chunks -> Google embeddings -> local Chroma
        -> retrieve relevant chunks -> Gemini -> grounded answer
 ```
 
+## Screenshots
+
+### Light mode and source ingestion
+
+![Source Atlas light mode with source ingestion and library](docs/images/ui-light-overview.png)
+
+This screen contains:
+
+- **Theme toggle** — switches between the saved light and dark themes.
+- **Source tabs** — choose PDF, website, or YouTube transcript ingestion.
+- **Source input** — upload a PDF or submit a supported URL.
+- **Source library** — shows every ingested source, its type, creation date, and delete action.
+- **Source counter** — shows how many sources are currently saved in the library.
+
+### Grounded chat workspace
+
+![Source Atlas chat workspace with retrieval controls](docs/images/ui-light-chat.png)
+
+The chat workspace includes:
+
+- **Suggested questions** — quickly summarize sources, extract key ideas, or find action items.
+- **Grounded-answer panel** — displays Gemini's answer and the source metadata returned with it.
+- **Search scope** — searches all sources or one selected source.
+- **Retrieved chunks** — controls how many relevant ChromaDB chunks Gemini receives.
+- **Question composer** — sends the question to the same-origin `/chat` endpoint.
+- **Grounding notice** — explains that Gemini answers only from retrieved source context.
+
+### Dark mode
+
+![Source Atlas dark mode](docs/images/ui-dark-overview.png)
+
+Dark mode uses the same components with a dark teal palette, softer contrast, and theme-aware cards and inputs. The selected theme is saved in browser `localStorage` and restored on later visits.
+
+### Loading state
+
+![Source Atlas Lottie loading overlay](docs/images/ui-loading-overlay.png)
+
+The full-screen Lottie animation appears while the backend extracts, chunks, embeds, retrieves, or generates an answer. The status text changes for each operation, the page is locked while work is in progress, and the overlay closes automatically when the request finishes or fails.
+
 ## Project structure
 
 ```text
@@ -30,6 +69,7 @@ app/
     chat.py                  retrieval and Gemini prompting
 frontend/                    dependency-free HTML/CSS/JavaScript UI
 frontend/assets/             Lottie loading animation
+docs/images/                 README screenshots
 chroma_data/                 created automatically and persisted locally
 ```
 
